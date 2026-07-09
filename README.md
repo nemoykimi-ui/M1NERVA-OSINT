@@ -1,6 +1,3 @@
-# M1NERVA-OSINT
-
-
 # 🧠 M1NERVA — OSINT-агрегатор
 
 <div align="center">
