@@ -45,3 +45,58 @@
 ```bash
 docker build -t m1nerva .
 docker run -it --rm -v $(pwd)/api_keys.json:/app/api_keys.json m1nerva
+
+## 🤝 Вклад в проект
+
+Если хочешь помочь развитию M1NERVA:
+
+1. Сообщай об ошибках — создавай Issue с подробным описанием.
+2. Предлагай новые модули — если есть идеи для новых API или утилит.
+3. Улучшай документацию — помогай с README, примерами, инструкциями.
+4. Делай Pull Request — исправляй баги и добавляй функциональность.
+
+---
+
+## 📄 Юридические документы
+
+- [Terms of Service](ToS.txt)
+- [Privacy Policy](Privacy.txt)
+
+---
+
+## ⚖️ Лицензия
+
+M1NERVA распространяется под лицензией **GNU GPL v3**.  
+Подробнее см. [LICENSE](LICENSE).
+
+---
+
+## 📬 Контакты
+
+- Разработчик: [@styx_phax](https://t.me/styx_phax)
+- Соавтор: DeepSeek
+- Репозиторий: [github.com/nemoykimi-ui/M1NERVA-OSINT](https://github.com/nemoykimi-ui/M1NERVA-OSINT)
+
+---
+
+## 🙏 Благодарности
+
+Всем разработчикам открытых API и утилит, без которых этот инструмент был бы невозможен:
+
+- Sherlock
+- Maigret
+- crt.sh
+- HaveIBeenPwned
+- Shodan
+- VirusTotal
+- и всем остальным сервисам, перечисленным в документации.
+
+---
+
+<div align="center">
+
+⚠️ **Помни:** с большой силой приходит большая ответственность. Используй инструмент мудро и этично.
+
+[![M1NERVA](https://img.shields.io/badge/-%F0%9F%A9%B8%20M1NERVA%20%F0%9F%A9%B8-red?style=for-the-badge)](https://github.com/nemoykimi-ui/M1NERVA-OSINT)
+
+</div>
