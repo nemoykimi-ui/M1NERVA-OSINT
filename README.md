@@ -51,7 +51,7 @@
 
 ## 📄 Юридические документы
 
-- [Terms of Service]()
+- [Terms of Service](https://github.com/nemoykimi-ui/M1NERVA-OSINT/blob/main/TOs.txt)
 - [Privacy Policy](https://github.com/nemoykimi-ui/M1NERVA-OSINT/blob/main/privacy_policy.txt)
 
 ---
