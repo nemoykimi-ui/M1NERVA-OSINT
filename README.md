@@ -38,14 +38,6 @@
 
 ---
 
-## 📦 Установка
-
-### 🐳 Docker (рекомендуется)
-
-```bash
-docker build -t m1nerva .
-docker run -it --rm -v $(pwd)/api_keys.json:/app/api_keys.json m1nerva
-
 ## 🤝 Вклад в проект
 
 Если хочешь помочь развитию M1NERVA:
