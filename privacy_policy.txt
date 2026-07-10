@@ -1,0 +1,89 @@
+# Privacy Policy for M1NERVA
+
+**Version 1.0**  
+**Effective Date:** 2026-07-10
+
+---
+
+## 1. Introduction
+
+M1NERVA ("the Software") is an OSINT aggregation tool that operates locally on your device. This Privacy Policy explains how we handle data when you use the Software.
+
+## 2. Data Collection by the Software
+
+**The Software does not collect, transmit, or store any personal data on external servers.**
+
+All operations performed by the Software occur locally on your device. The Software does not:
+
+- Send any data to servers controlled by the developers.
+- Collect telemetry, usage statistics, or crash reports.
+- Store or log your searches except as explicitly configured by you.
+
+## 3. Data You Input
+
+When you use the Software, you may input:
+
+- Phone numbers
+- Email addresses
+- Usernames
+- IP addresses
+- Full names
+- Addresses
+- Photos (locally processed)
+
+This data is used only to perform the specific searches you request. It is temporarily processed in memory and may be saved to local report files (in the `reports/` directory) if you choose to save results.
+
+## 4. Third-Party APIs
+
+The Software makes queries to third-party APIs using the API keys you provide. When you use the Software:
+
+- Your queries are sent directly to these third-party services.
+- The developers of M1NERVA have no control over, and assume no responsibility for, the privacy practices of these third-party services.
+- You should review the privacy policies of each third-party service you use.
+
+## 5. Local Data Storage
+
+The Software may generate and store:
+
+- **Logs:** Debug and error logs (in `logs/` directory).
+- **Reports:** Search results (in `reports/` directory).
+
+All such data is stored locally on your device. **You are responsible for**:
+
+- Securing this data.
+- Managing its retention and deletion.
+- Complying with applicable privacy laws regarding any personal data contained in these files.
+
+## 6. API Keys
+
+Your API keys are stored locally in `api_keys.json`. They are not transmitted to the developers of M1NERVA. You are responsible for securing your API keys and for complying with the terms of service of each provider.
+
+## 7. Data Security
+
+Since all data is stored locally, security is your responsibility. We recommend:
+
+- Using full-disk encryption on your device.
+- Not sharing your `api_keys.json` or `reports/` directory with unauthorized parties.
+- Regularly deleting old reports and logs if they contain sensitive information.
+
+## 8. Data Retention
+
+We do not have access to your data. You decide how long to keep reports and logs on your own device.
+
+## 9. Children's Privacy
+
+The Software is not intended for use by individuals under the age of 18. We do not knowingly collect personal information from children.
+
+## 10. Changes to This Policy
+
+We may update this Privacy Policy from time to time. Continued use of the Software after any changes constitutes acceptance of the updated policy.
+
+## 11. Contact
+
+If you have questions about this Privacy Policy, you can contact us at:
+
+[Your Email or Contact Method]
+
+---
+
+**Last Updated:** 2026-07-10
