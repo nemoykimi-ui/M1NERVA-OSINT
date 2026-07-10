@@ -1,130 +1,92 @@
-# M1NERVA — OSINT-агрегатор
+M1NERVA — OSINT-агрегатор
+================================
 
-CLI-инструмент для сбора информации из открытых источников. Объединяет несколько модулей поиска в едином интерфейсе. Работает по принципу BYO-key — используются ваши собственные API-ключи.
+Версия: 1.5
+Лицензия: GNU GPL v3
+Разработчики: @styx_phax, DeepSeek
 
-## ⚠️ Дисклеймер
+Дисклеймер
+----------
+Инструмент разработан исключительно для образовательных целей и этических расследований с согласия всех участников. Вся ответственность за использование лежит на пользователе.
 
-> Инструмент разработан исключительно для образовательных целей и этических расследований с согласия всех участников.
-> Вся ответственность за использование лежит на пользователе.
+Возможности
+-----------
++ 23+ модуля: телефон, email, IP, username, лицо, криптокошельки, DNS, SSL, GitHub, утечки, транспорт, документы, недвижимость, юрлица и другие.
++ Асинхронные запросы (asyncio.gather) — быстрее.
++ Автообновление через --update.
++ BYO-key (свои API-ключи).
++ Кэширование, ретраи, прокси, логирование.
 
-## Возможности
+Установка
+---------
+Docker (рекомендуется):
+  docker build -t m1nerva .
+  docker run -it --rm -v $(pwd)/api_keys.json:/app/api_keys.json m1nerva
 
-- Асинхронные запросы (`asyncio.gather`) — параллельная обработка
-- Автообновление через `--update`
-- BYO-key — свои API-ключи, никаких скрытых сборов
-- Ключи хранятся локально, поддерживается `.env` и `.gitignore`
-- In-memory кэш с TTL
-- Retry с backoff при ошибках сети
-- CLI + интерактивное меню, поддержка прокси
+Из исходников (Python):
+  git clone https://github.com/nemoykimi-ui/M1NERVA-OSINT.git
+  cd M1NERVA-OSINT
+  pip install -r requirements.txt
+  python app.py
 
-## Установка
+Termux (Android):
+  pkg update && pkg install python libxml2 libxslt
+  pip install -r requirements.txt
+  python app.py
 
-### Docker (рекомендуется)
+Настройка ключей
+----------------
++ Заполните api_keys.json (создайте из примера).
++ Или запустите: python app.py --setup-keys
++ Прокси в .env: PROXY=http://user:pass@host:port
 
-\`\`\`bash
-docker build -t m1nerva .
-docker run -it --rm -v $(pwd)/api_keys.json:/app/api_keys.json m1nerva
-\`\`\`
+Использование
+-------------
+Интерактивное меню:
+  python app.py
 
-### Python (из исходников)
+CLI-режим:
+  python app.py --auto --query "+79991234567"
+  python app.py --type ip --query 8.8.8.8
+  python app.py --file photo.jpg --type face
+  python app.py --setup-keys
+  python app.py --update
 
-\`\`\`bash
-git clone https://github.com/nemoykimi-ui/M1NERVA-OSINT.git
-cd M1NERVA-OSINT
-pip install -r requirements.txt
-python app.py
-\`\`\`
+Поддерживаемые модули (кратко)
+-----------------------------
+Телефон, Email, Username, IP-адрес, Фото лица, ФИО/адрес, Утечки, Бонусный поиск, Транспорт, Документы, Соцсети (расшир.), Telegram, Домен, Недвижимость, Юрлица, Криптокошельки, DNS/Поддомены, SSL-сертификаты, GitHub, Pastebin/Leak, Файлы по хешу, Wi-Fi/BSSID, BIN карты.
 
-### Termux (Android)
+Все модули используют ваши ключи (BYO-key). Некоторые бесплатны, другие требуют ключей.
 
-\`\`\`bash
-pkg update && pkg install python libxml2 libxslt
-pip install -r requirements.txt
-python app.py
-\`\`\`
-
-## Настройка
-
-### API-ключи
-
-\`\`\`bash
-python app.py --setup-keys
-\`\`\`
-
-Либо отредактируйте `api_keys.json` вручную.
-
-### Прокси (опционально)
-
-Создайте файл `.env`:
-
-\`\`\`env
-PROXY=http://user:pass@host:port
-\`\`\`
-
-### GPG-подпись коммитов (для разработчиков)
-
-\`\`\`bash
-gpg --full-generate-key
-gpg --armor --export <KEY_ID>
-git config --global user.signingkey <KEY_ID>
-git config --global commit.gpgsign true
-\`\`\`
-
-## Использование
-
-### Интерактивное меню
-
-\`\`\`bash
-python app.py
-\`\`\`
-
-После подтверждения дисклеймера откроется меню.
-
-### CLI-режим
-
-\`\`\`bash
-python app.py --auto --query "<запрос>"
-python app.py --type ip --query 8.8.8.8
-python app.py --setup-keys
-python app.py --update
-\`\`\`
-
-## Структура проекта
-
-\`\`\`
+Структура проекта
+-----------------
 M1NERVA/
-├── app.py                 # Точка входа
-├── api_manager.py         # HTTP-клиент (кэш, лимитер, прокси)
-├── key_manager.py         # Настройка и проверка ключей
-├── logger.py              # Логирование с ротацией
-├── utils.py                # Автоопределение типа
-├── metadata_cleaner.py     # Очистка EXIF
-├── modules/                 # Модули поиска
-├── api_keys.json            # API-ключи (не в репозитории!)
-├── .env                      # Переменные окружения (не в репозитории!)
+├── app.py
+├── api_manager.py
+├── key_manager.py
+├── logger.py
+├── utils.py
+├── metadata_cleaner.py
+├── modules/
+├── api_keys.json
+├── .env
 ├── Dockerfile
 ├── requirements.txt
 ├── LICENSE
 ├── ToS.txt
 ├── Privacy.txt
 └── README.md
-\`\`\`
 
-## Юридические документы
+Юридические документы
+---------------------
++ Terms of Service: ToS.txt
++ Privacy Policy: Privacy.txt
 
-- [Terms of Service](ToS.txt)
-- [Privacy Policy](Privacy.txt)
+Контакты
+--------
++ Разработчик: @styx_phax
++ Соавтор: DeepSeek
++ Репозиторий: https://github.com/nemoykimi-ui/M1NERVA-OSINT
 
-## Лицензия
-
-Распространяется под лицензией GNU GPL v3. Подробнее см. [LICENSE](LICENSE).
-
-## Контакты
-
-- Разработчик: @styx_phax
-- Соавтор: DeepSeek
-- Репозиторий: github.com/nemoykimi-ui/M1NERVA-OSINT
-
-## Благодарности
-
-Разработчикам открытых инструментов, использованных в проекте: Sherlock, Maigret, crt.sh, HaveIBeenPwned, Shodan, VirusTotal и другим сервисам, перечисленным в документации.
+------------------------------------------------------------
+Помните: инструмент только для законного использования с согласия всех сторон.
